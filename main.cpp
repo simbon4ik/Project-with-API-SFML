@@ -96,14 +96,51 @@ int main()
     return 0;
 }
 
+std::string check_color_text(Square square, int& color_index){
+    color_index = 1;
+    switch(static_cast<int>(square.color))
+    {
+        case 1:
+            return "White";
+        case 2:
+            color_index = 0;
+            return "Black";
+        case 3:
+            return "Brown";
+        case 4:
+            return "Blue";
+        case 5:
+            return "Light_Blue";
+        case 6:
+            return "Red";             
+        case 7: 
+            return "Yellow";
+        case 8:
+            return "Green";
+        case 9:
+            return "Gray";
+        case 10:
+            return "Pink";          
+    }
+    return "Undefined";
+}
 
 void drawwing(Game& game, vector<sf::Color> colors, sf::RenderWindow& window){
+     sf::Font font;
+    font.loadFromFile("Hayamichi.ttf");
+    sf::Text text;
+    text.setFont(font);
     window.clear();
     for (auto& square : game.squares){
         sf::RectangleShape Rect(sf::Vector2f(200.f, 200.f));
         Rect.setFillColor(colors[static_cast<int>(square.color)-1]);
         Rect.setPosition(square.pos_x, square.pos_y);
-        window.draw(Rect);
+        int color_text = 0;
+        text.setString(check_color_text(square, color_text));
+        text.setPosition(square.pos_x+10, square.pos_y+10);
+        text.setFillColor(colors[color_text]);
+        window.draw(Rect);     
+        window.draw(text);
     }
 
     //For board
@@ -117,10 +154,7 @@ void drawwing(Game& game, vector<sf::Color> colors, sf::RenderWindow& window){
     window.draw(Rect_y_board);
 
     //For count steps
-    sf::Font font;
-    font.loadFromFile("Hayamichi.ttf");
-    sf::Text text;
-    text.setFont(font);
+   
     text.setCharacterSize(40);
     text.setFillColor(sf::Color::White);
     text.setString("Count steps is: " + std::to_string(game.count_steps)); 

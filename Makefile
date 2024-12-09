@@ -1,5 +1,5 @@
 all: *.cpp
-	g++ *.cpp -o rectangle -lsfml-graphics -lsfml-window -lsfml-system -lcurl -I./l
+	g++ *.cpp -o game -lsfml-graphics -lsfml-window -lsfml-system -lcurl -I./
 
 clean:  
 	rm -f *.o
