@@ -4,9 +4,9 @@
 
 ### For start
 **To start the project, you need to install the SFML and nlohmann libraries.**<br>
-*1. (lohmann) https://github.com/nlohmann/json <br>
-*2. (SFML) https://www.sfml-dev.org/download.php <br>
-*3. Write in the terminal <br>
+*1. (lohmann) https://github.com/nlohmann/json *<br>
+*2. (SFML) https://www.sfml-dev.org/download.php *<br>
+*3. Write in the terminal *<br>
 ```
 make
 ```
